@@ -1,0 +1,42 @@
+﻿<div><br />
+    <div class="panel panel-default">
+        <div class="panel-heading" ng-if="PostId">Posts | Update Post</div>
+        <div class="panel-heading" ng-if="!PostId">Posts | New Post</div>
+        <div><p style="text-align:center;color:red">{{message}}</p></div>
+        <table>
+            <tr>
+                <td class="control-label col-md-2"><b>Title</b></td>
+                <td>
+                    <input class="form-control" type="text" ng-required="true" ng-model="Title" placeholder="Title" />
+                </td>
+            </tr>
+            <tr>
+                <td class="control-label col-md-2"><b>Content</b></td>
+                <td>
+                    <input class="form-control" type="text" ng-model="Content" placeholder="Content" />
+                </td>
+            </tr>
+            <tr>
+                <td class="control-label col-md-2"><b>Tags</b></td>
+                <td>
+                    <input class="form-control" type="text" ng-required="true" ng-model="Tags" placeholder="Tags" />
+                </td>
+            </tr>
+            <tr ng-controller="tagsController">
+                <td class="control-label col-md-2"><b>Select Tags</b></td>
+                <td>
+                    <span ng-repeat="tag in tags"><a ng-click="addtag(tag.Tag)" ng-model="tag.Tag">{{tag.Tag}}</a>,&nbsp;</span>
+                </td>
+            </tr>
+
+            <tr>
+                <td></td>
+                <td>
+                    <button id="submitButton" name="submitButton" class="btn btn-primary" ng-click="AddUpdatePost()">Save</button>
+                    <a class="btn btn-warning" href="#/post">Cancel</a>
+                </td>
+            </tr>
+        </table>
+        <input type="hidden" ng-model="PostId" />
+    </div>
+</div>
